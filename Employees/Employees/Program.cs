@@ -60,6 +60,25 @@ namespace Employees
                     Console.WriteLine($"\t{item}");
                 }
             }
+            Console.WriteLine();
+
+            // 5.
+            var categories = new int[4, 2]
+            {
+                { 200, 399 },
+                { 400, 599 },
+                { 600, 799 },
+                { 800, 999 }
+            };
+
+            for (int i = 0; i < categories.GetLength(0); i++)
+            {
+                Console.WriteLine($"{categories[i, 0]} - {categories[i, 1]}");
+                foreach (var item in employees.Where(e => e.Salary >= categories[i, 0] && e.Salary <= categories[i, 1]))
+                {
+                    Console.WriteLine($"\t{item.Name}");
+                }
+            }
 
             Console.ReadKey();
         }
